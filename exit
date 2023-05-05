@@ -1,0 +1,35 @@
+[33mcommit 1cfa4b2601de39eabc08de5014ef4113d0dd3bcb[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Fri May 5 09:12:11 2023 -0500
+
+    Vista de proveedores
+
+[33mcommit 0e5ce8486d878139fe3432c898fa2b06d3f68ddb[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Fri May 5 08:32:57 2023 -0500
+
+    Vista Formulario_Venta
+
+[33mcommit d0aa19aeee7907608aba9a06391b55a7312a6f21[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Fri May 5 08:07:55 2023 -0500
+
+    Vista de ventas
+
+[33mcommit b0c252345cc4054d178ef7d1b43fbca5c12046c2[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Fri May 5 06:47:44 2023 -0500
+
+    Vista de inventario
+
+[33mcommit 9c7456090d15925b784343702c247717e38d812b[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Fri May 5 01:33:20 2023 -0500
+
+    Vista de ingreso
+
+[33mcommit 923b2e7e4accc610c051cfecd05dca70e1005aab[m
+Author: Juan Lopez <jdavidxlopez@gmail.com>
+Date:   Thu May 4 18:47:04 2023 -0500
+
+    Creacion de paquetes y clases de la vista
