@@ -35,6 +35,7 @@ public class Welcome extends javax.swing.JFrame {
         btnIngreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("INGRESO");
 
         pnlFondo.setBackground(new java.awt.Color(204, 255, 204));
 
