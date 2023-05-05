@@ -26,21 +26,181 @@ public class Proveedores_Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlFondo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        lblProveedor = new javax.swing.JLabel();
+        lblInstrumento = new javax.swing.JLabel();
+        lblMarca = new javax.swing.JLabel();
+        lblValor = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        txtfCantidad = new javax.swing.JTextField();
+        cmbProveedor = new javax.swing.JComboBox<>();
+        txtfValor = new javax.swing.JTextField();
+        txtfFecha = new javax.swing.JTextField();
+        cmbMarca = new javax.swing.JComboBox<>();
+        cmbInstrumento = new javax.swing.JComboBox<>();
+        btnAdquisicion = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Material Nuevo");
+
+        pnlFondo.setBackground(new java.awt.Color(0, 0, 0));
+
+        lblTitulo.setFont(new java.awt.Font("Vivaldi", 1, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Formulario De Material Nuevo");
+
+        lblProveedor.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        lblProveedor.setText("Proveedor:");
+
+        lblInstrumento.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblInstrumento.setForeground(new java.awt.Color(255, 255, 255));
+        lblInstrumento.setText("Instrumento o accesorio:");
+
+        lblMarca.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblMarca.setForeground(new java.awt.Color(255, 255, 255));
+        lblMarca.setText("Marca y modelo:");
+
+        lblValor.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblValor.setForeground(new java.awt.Color(255, 255, 255));
+        lblValor.setText("Valor total:");
+
+        lblCantidad.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        lblCantidad.setText("Cantidad:");
+
+        lblFecha.setFont(new java.awt.Font("Perpetua Titling MT", 1, 14)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(255, 255, 255));
+        lblFecha.setText("Fecha:");
+
+        txtfCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfCantidadActionPerformed(evt);
+            }
+        });
+
+        cmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion" }));
+
+        txtfValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfValorActionPerformed(evt);
+            }
+        });
+
+        cmbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion" }));
+
+        cmbInstrumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion" }));
+
+        btnAdquisicion.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        btnAdquisicion.setText("ADQUIRIR PRODUCTO");
+        btnAdquisicion.setBorder(new javax.swing.border.MatteBorder(null));
+
+        btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.setBorder(new javax.swing.border.MatteBorder(null));
+
+        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
+        pnlFondo.setLayout(pnlFondoLayout);
+        pnlFondoLayout.setHorizontalGroup(
+            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFondoLayout.createSequentialGroup()
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInstrumento)
+                            .addGroup(pnlFondoLayout.createSequentialGroup()
+                                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblProveedor)
+                                    .addComponent(lblMarca)
+                                    .addComponent(lblCantidad)
+                                    .addComponent(lblValor)
+                                    .addComponent(lblFecha))
+                                .addGap(114, 114, 114)
+                                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbInstrumento, 0, 319, Short.MAX_VALUE)
+                                    .addComponent(cmbProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtfCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtfFecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                        .addComponent(txtfValor, javax.swing.GroupLayout.Alignment.LEADING))))))
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(lblTitulo))
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(btnAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        pnlFondoLayout.setVerticalGroup(
+            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFondoLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(lblTitulo)
+                .addGap(43, 43, 43)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProveedor)
+                    .addComponent(cmbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInstrumento)
+                    .addComponent(cmbInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(lblMarca))
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCantidad)
+                    .addComponent(txtfCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValor)
+                    .addComponent(txtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFecha))
+                .addGap(74, 74, 74)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdquisicion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtfCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfCantidadActionPerformed
+
+    private void txtfValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +238,21 @@ public class Proveedores_Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdquisicion;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> cmbInstrumento;
+    private javax.swing.JComboBox<String> cmbMarca;
+    private javax.swing.JComboBox<String> cmbProveedor;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblInstrumento;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblProveedor;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblValor;
+    private javax.swing.JPanel pnlFondo;
+    private javax.swing.JTextField txtfCantidad;
+    private javax.swing.JTextField txtfFecha;
+    private javax.swing.JTextField txtfValor;
     // End of variables declaration//GEN-END:variables
 }
