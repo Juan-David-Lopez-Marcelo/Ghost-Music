@@ -4,6 +4,8 @@
  */
 package ghost.music;
 
+import DataBase.Connector;
+
 /**
  *
  * @author Usuario
@@ -14,7 +16,7 @@ public class GhostMusic {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Connector connection=new Connector();
     }
     
 }
