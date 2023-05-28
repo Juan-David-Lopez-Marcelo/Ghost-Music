@@ -8,6 +8,6 @@ package Dao;
  *
  * @author Usuario
  */
-public class asd {
-    private String asd;
+public class Proveedores_Dao {
+    
 }
