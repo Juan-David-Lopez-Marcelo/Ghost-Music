@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -255,4 +257,10 @@ public class Proveedores_Formulario extends javax.swing.JFrame {
     private javax.swing.JTextField txtfFecha;
     private javax.swing.JTextField txtfValor;
     // End of variables declaration//GEN-END:variables
+    public void añadirMat(ActionListener listener) {
+        btnAdquisicion.addActionListener(listener);
+    }
+    public void cambiarTablaProveedor(ActionListener listener) {
+        btnRegresar.addActionListener(listener);
+    }
 }

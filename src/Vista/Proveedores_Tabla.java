@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -192,4 +194,14 @@ public class Proveedores_Tabla extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFondo;
     private javax.swing.JTable tblDatos;
     // End of variables declaration//GEN-END:variables
+    
+    public void cambiarInventario(ActionListener listener) {
+        btnRegresar.addActionListener(listener);
+    }
+    public void cambiarFormulario(ActionListener listener) {
+        btnMaterial.addActionListener(listener);
+    }
+    public void eliminarMaterial(ActionListener listener) {
+        btnEliminar.addActionListener(listener);
+    }
 }

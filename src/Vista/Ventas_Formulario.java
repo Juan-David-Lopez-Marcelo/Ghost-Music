@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -251,4 +253,10 @@ public class Ventas_Formulario extends javax.swing.JFrame {
     private javax.swing.JTextField txtfNombre;
     private javax.swing.JTextField txtfPrecio;
     // End of variables declaration//GEN-END:variables
+    public void crearVenta(ActionListener listener) {
+        btnVenta.addActionListener(listener);
+    }
+    public void cambiarTablaVenta(ActionListener listener) {
+        btnRegresar.addActionListener(listener);
+    }
 }

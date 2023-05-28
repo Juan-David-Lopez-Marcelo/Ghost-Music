@@ -234,8 +234,14 @@ public class InventarioListView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFondo;
     private javax.swing.JTable tblInventario;
     // End of variables declaration//GEN-END:variables
-public void cambiarVentas(ActionListener listener) {
+    public void cambiarVentas(ActionListener listener) {
         btnVentas.addActionListener(listener);
+    }
+    public void cambiarProveedores(ActionListener listener) {
+        btnProveedores.addActionListener(listener);
+    }
+    public void salir(ActionListener listener) {
+        btnSalir.addActionListener(listener);
     }
 }
 
