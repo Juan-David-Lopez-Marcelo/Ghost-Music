@@ -8,6 +8,6 @@ package Controlador;
  *
  * @author Usuario
  */
-public class Controlador {
-    //a
+public class Proveedores_Controller {
+    private String a;
 }
