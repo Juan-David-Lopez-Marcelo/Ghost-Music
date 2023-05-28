@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
 import Vista.InventarioListView;
 import Vista.Ventas_Formulario;
 import Vista.Ventas_Tabla;
@@ -17,8 +18,9 @@ public class Ventas_Controller {
     private Ventas_Tabla ventas;
     private InventarioListView inventarioView;
     private Ventas_Formulario formulario;
+    private Cliente cliente;
     
-    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario){
+    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario, Cliente cliente){
         this.ventas = ventas;
         this.inventarioView = inventarioView;
         this.formulario = formulario;
@@ -39,7 +41,10 @@ public class Ventas_Controller {
         });
         formulario.crearVenta((ActionEvent e) -> { 
             //Proceso para crear venta
+            cliente.setNombre(formulario.getTxtfNombre());
+            System.out.println(cliente.getNombre());
         });
+        
         
     }
 
