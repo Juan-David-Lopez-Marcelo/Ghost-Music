@@ -8,22 +8,15 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Proveedor {
+public class Proveedor extends Model{
     
-    private String nombre;
+    private String id;
     private String correo;
 
-    public Proveedor(String nombre, String correo) {
-        this.nombre = nombre;
+    public Proveedor(String nombre, String correo, String id) {
+        super(nombre);
         this.correo = correo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.id = id;
     }
 
     public String getCorreo() {
@@ -33,6 +26,13 @@ public class Proveedor {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     
 }

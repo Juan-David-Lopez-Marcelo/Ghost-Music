@@ -8,22 +8,13 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Admin {
+public class Admin extends Model {
     
-    private String nombre;
     private String clave;
-
+    
     public Admin(String nombre, String clave) {
-        this.nombre = nombre;
+        super(nombre);
         this.clave = clave;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getClave() {
@@ -33,6 +24,5 @@ public class Admin {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
-    
+
 }

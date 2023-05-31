@@ -31,8 +31,6 @@ public class Inventario_Controller {
         this.ventasTbl = ventasTbl;
         this.proveedoresTbl = proveedoresTbl;
         
-        inventarioView.setVisible(true);
-        
         inventarioView.cambiarVentas((ActionEvent e) -> { 
             inventarioView.setVisible(false);
             ventasTbl.setVisible(true);

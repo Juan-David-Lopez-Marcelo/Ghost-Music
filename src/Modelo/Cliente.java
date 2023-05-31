@@ -8,22 +8,13 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Cliente {
+public class Cliente extends Model {
     
-    private String nombre;
     private String correo;
 
     public Cliente(String nombre, String correo) {
-        this.nombre = nombre;
+        super(nombre);
         this.correo = correo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getCorreo() {

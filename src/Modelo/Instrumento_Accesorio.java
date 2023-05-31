@@ -8,24 +8,15 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Instrumento_Accesorio {
+public class Instrumento_Accesorio extends Model{
     
-    private String nombre;
     private String marca_modelo;
     private double precio;
 
     public Instrumento_Accesorio(String nombre, String marca_modelo, double precio) {
-        this.nombre = nombre;
+        super(nombre);
         this.marca_modelo = marca_modelo;
         this.precio = precio;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getMarca_modelo() {

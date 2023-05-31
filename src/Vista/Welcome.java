@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import java.awt.event.ActionListener;
+import javax.swing.JPasswordField;
+
 /**
  *
  * @author Usuario
@@ -33,6 +36,8 @@ public class Welcome extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         passfPassword = new javax.swing.JPasswordField();
         btnIngreso = new javax.swing.JButton();
+        lblUser = new javax.swing.JLabel();
+        txtfUser = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESO");
@@ -52,7 +57,6 @@ public class Welcome extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         lblPassword.setText("Password:");
 
-        passfPassword.setText("jPasswordField1");
         passfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passfPasswordActionPerformed(evt);
@@ -68,6 +72,9 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
+        lblUser.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
+        lblUser.setText("User:");
+
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
@@ -75,44 +82,55 @@ public class Welcome extends javax.swing.JFrame {
             .addGroup(pnlFondoLayout.createSequentialGroup()
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlFondoLayout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(lblTitulo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
+                                .addContainerGap(111, Short.MAX_VALUE)
                                 .addComponent(lblTitulo2)
-                                .addGap(74, 74, 74))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
-                                .addComponent(lblPassword)
-                                .addGap(31, 31, 31)
-                                .addComponent(passfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))))
-                .addComponent(lblLogo)
+                                .addGap(74, 74, 74)))
+                        .addComponent(lblLogo))
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlFondoLayout.createSequentialGroup()
+                                .addGap(230, 230, 230)
+                                .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlFondoLayout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUser))
+                                .addGap(28, 28, 28)
+                                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(passfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                    .addComponent(txtfUser))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(lblTitulo)
                         .addGap(18, 18, 18)
                         .addComponent(lblTitulo2)
-                        .addGap(87, 87, 87)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword))))
-                .addGap(68, 68, 68)
+                            .addComponent(lblUser)
+                            .addComponent(txtfUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)))
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPassword)
+                    .addComponent(passfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -145,7 +163,24 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo2;
+    private javax.swing.JLabel lblUser;
     private javax.swing.JPasswordField passfPassword;
     private javax.swing.JPanel pnlFondo;
+    private javax.swing.JTextField txtfUser;
     // End of variables declaration//GEN-END:variables
+
+    public void ingresar(ActionListener listener) {
+        btnIngreso.addActionListener(listener);
+    }
+    
+    public String getUser(){
+        return txtfUser.getText();
+    }
+    public String getPassword() {
+        return passfPassword.getText();
+    }
+    
+    public void validar(){
+        
+    }
 }

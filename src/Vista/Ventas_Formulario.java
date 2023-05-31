@@ -30,6 +30,9 @@ public class Ventas_Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         pnlFondo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -48,6 +51,13 @@ public class Ventas_Formulario extends javax.swing.JFrame {
         txtfPrecio = new javax.swing.JTextField();
         txtfCantidad = new javax.swing.JTextField();
         txtfFecha = new javax.swing.JTextField();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nueva Venta");
@@ -95,6 +105,12 @@ public class Ventas_Formulario extends javax.swing.JFrame {
         btnRegresar.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         btnRegresar.setText("REGRESAR");
         btnRegresar.setBorder(new javax.swing.border.MatteBorder(null));
+
+        txtfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfNombreActionPerformed(evt);
+            }
+        });
 
         cmbInstrumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion" }));
 
@@ -200,12 +216,19 @@ public class Ventas_Formulario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfNombreActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnVenta;
     private javax.swing.JComboBox<String> cmbInstrumento;
     private javax.swing.JComboBox<String> cmbMarca;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblFecha;
@@ -255,5 +278,5 @@ public class Ventas_Formulario extends javax.swing.JFrame {
     public JTextField getTxtfPrecio() {
         return txtfPrecio;
     }
-    
+
 }

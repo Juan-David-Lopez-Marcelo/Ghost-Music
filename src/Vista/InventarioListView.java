@@ -6,11 +6,12 @@ package Vista;
 
 import java.awt.event.ActionListener;
 
+
 /**
  *
  * @author Usuario
  */
-public class InventarioListView extends javax.swing.JFrame {
+public class InventarioListView extends javax.swing.JFrame{
 
     /**
      * Creates new form Inventario
@@ -170,6 +171,7 @@ public class InventarioListView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFondo;
     private javax.swing.JTable tblInventario;
     // End of variables declaration//GEN-END:variables
+    
     public void cambiarVentas(ActionListener listener) {
         btnVentas.addActionListener(listener);
     }
@@ -179,5 +181,7 @@ public class InventarioListView extends javax.swing.JFrame {
     public void salir(ActionListener listener) {
         btnSalir.addActionListener(listener);
     }
+
+    
 }
 

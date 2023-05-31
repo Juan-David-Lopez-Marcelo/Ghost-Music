@@ -9,6 +9,8 @@ import Vista.InventarioListView;
 import Vista.Ventas_Formulario;
 import Vista.Ventas_Tabla;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -44,8 +46,7 @@ public class Ventas_Controller {
             cliente.setNombre(formulario.getTxtfNombre());
             System.out.println(cliente.getNombre());
         });
-        
-        
+      
     }
 
 }
