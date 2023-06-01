@@ -95,9 +95,6 @@ public class Welcome extends javax.swing.JFrame {
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlFondoLayout.createSequentialGroup()
-                                .addGap(230, 230, 230)
-                                .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlFondoLayout.createSequentialGroup()
                                 .addGap(72, 72, 72)
                                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPassword)
@@ -105,7 +102,10 @@ public class Welcome extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(passfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                    .addComponent(txtfUser))))
+                                    .addComponent(txtfUser)))
+                            .addGroup(pnlFondoLayout.createSequentialGroup()
+                                .addGap(230, 230, 230)
+                                .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -172,15 +172,11 @@ public class Welcome extends javax.swing.JFrame {
     public void ingresar(ActionListener listener) {
         btnIngreso.addActionListener(listener);
     }
-    
     public String getUser(){
         return txtfUser.getText();
     }
-    public String getPassword() {
-        return passfPassword.getText();
+    public char[] getContraseña() {
+        return passfPassword.getPassword();
     }
-    
-    public void validar(){
-        
-    }
+    //La vista valida
 }

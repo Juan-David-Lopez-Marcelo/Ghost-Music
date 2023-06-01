@@ -10,18 +10,18 @@ package Modelo;
  */
 public class Admin extends Model {
     
-    private String clave;
+    private char[] clave;
     
-    public Admin(String nombre, String clave) {
+    public Admin(String nombre, char[] clave) {
         super(nombre);
         this.clave = clave;
     }
 
-    public String getClave() {
+    public char[] getClave() {
         return clave;
     }
 
-    public void setClave(String clave) {
+    public void setClave(char[] clave) {
         this.clave = clave;
     }
 

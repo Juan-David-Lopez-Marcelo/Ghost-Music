@@ -26,7 +26,7 @@ public class GhostMusic {
         String nombre = null;
         String correo = null;
         String nombAd = null;
-        String clave = null;
+        char[] clave = null;
         Admin admin = new Admin(nombAd,clave);
         Welcome welcome = new Welcome();
         InventarioListView inventarioView = new InventarioListView();

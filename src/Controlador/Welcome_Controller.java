@@ -9,6 +9,7 @@ import Vista.InventarioListView;
 import Vista.Welcome;
 import java.awt.event.ActionEvent;
 import static java.lang.System.exit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,23 +29,44 @@ public class Welcome_Controller {
         welcome.setVisible(true);
         
         welcome.ingresar((ActionEvent e) -> {
-        
-        welcome.validar(){
-            
-        }
+    
         admin.setNombre(welcome.getUser());
-
-        String a;
-        a= admin.getNombre();
-        //admin.setClave(welcome.getPassword());
-        if(a=="a"){//&&admin.getClave()=="ABC123"){
+        admin.setClave(welcome.getContraseña());
+        
+        /*String a = (String)admin.getClave();
+        if(validar()){
+            if(admin.getClave()=="abc"){
+                
+            }
             
-            welcome.setVisible(false);
-            inventarioView.setVisible(true);
-        }/*else{
-            exit(0);
         }*/
+        
+        welcome.setVisible(false);
+        inventarioView.setVisible(true);
             
         });
+       
     }
-}
+    
+        public boolean validar(){
+        boolean s = true;
+        String ms ="Falta:\n";
+        
+        if(admin.getNombre().length()<=0){
+            s=false;
+            ms=ms+" El nombre\n";
+        }
+        
+        /*if(admin.getClave().length()<=0){
+            s=false;
+            ms=ms+" La clave\n";
+        }*/
+      
+        if(!s){
+            System.out.println("Falta: "+ms);
+       
+        }
+        return s;
+     }
+    }
+
