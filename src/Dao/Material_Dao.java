@@ -4,9 +4,9 @@
  */
 package Dao;
 
-import DaoInterfaces.Inventario_Interface;
+import DaoInterfaces.Material_Interface;
 import DataBase.Connector;
-import Modelo.Inventario;
+import Modelo.Material;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,28 +17,31 @@ import java.util.ArrayList;
  *
  * @author Usuario
  */
-public class Inventario_Dao implements Inventario_Interface{
+public class Material_Dao implements Material_Interface {
     Connector connector;
     
-    public Inventario_Dao(){
+    public Material_Dao(){
         this.connector = new Connector();
     }
     
     @Override
-    public void update(Inventario inv) {
-        String sql = "update Inventario set ID = ?, Instrumento o Accesorio = ?, Marca y Modelo = ?, Cantidad Disponible = ?, Valor Unitario = ? where ID = ?";
+    public void update(Material mat) {
+        String sql = "update Material set ID = ?, Nombre Proveedor = ?, Correo Proveedor = ?, Instrumento o Accesorio = ?, Marca y Modelo = ?, Cantidad = ?, Valor Total = ?, Fecha = ? where ID = ?";
        
         try{
-            Inventario invUpdate = (Inventario) inv;
+            Material matUpdate = (Material) mat;
             
             PreparedStatement statement;
             statement = connector.getConnection().prepareStatement(sql);
             
-            statement.setString(1, invUpdate.getId() + "");
-            statement.setString(2, invUpdate.getNombre());
-            statement.setString(3, invUpdate.getMarca_modelo());
-            statement.setString(4, invUpdate.getPrecio() + "");
-            statement.setString(5, invUpdate.getCantidad() + "");
+            statement.setString(1, matUpdate.getId() + "");
+            statement.setString(2, matUpdate.getNombre_prov());
+            statement.setString(2, matUpdate.getCorreo_prov());
+            statement.setString(2, matUpdate.getNombre());
+            statement.setString(3, matUpdate.getMarca_modelo());
+            statement.setString(5, matUpdate.getCantidad() + "");
+            statement.setString(4, matUpdate.getValorTotal() + "");
+            statement.setString(3, matUpdate.getFecha());
                     
             statement.executeUpdate();
             
@@ -50,22 +53,24 @@ public class Inventario_Dao implements Inventario_Interface{
     }
 
     @Override
-    public void create(Inventario inv) {
-       String sql = "insert into Inventario (ID,Instrumento o Accesorio,Marca y Modelo,Cantidad Disponible,Valor Unitario) values (?, ?, ?, ?, ?)";
+    public void create(Material mat) {
+       String sql = "insert into Material (ID,Nombre Proveedor,Correo Proveedor,Instrumento o Accesorio,Marca y Modelo,Cantidad,Valor Total,Fecha) values (?, ?, ?, ?, ?, ?, ?, ?)";
        
         try{
-            Inventario invUpdate = (Inventario) inv;
+            Material matUpdate = (Material) mat;
             
             PreparedStatement statement;
             statement = connector.getConnection().prepareStatement(sql);
             
-            statement.setString(1, invUpdate.getId() + "");
-            statement.setString(2, invUpdate.getNombre());
-            statement.setString(3, invUpdate.getMarca_modelo());
-            statement.setString(4, invUpdate.getPrecio() + "");
-            statement.setString(5, invUpdate.getCantidad()+ "");
-                    
-                    
+            statement.setString(1, matUpdate.getId() + "");
+            statement.setString(2, matUpdate.getNombre_prov());
+            statement.setString(3, matUpdate.getCorreo_prov());
+            statement.setString(4, matUpdate.getNombre());
+            statement.setString(5, matUpdate.getMarca_modelo());
+            statement.setString(6, matUpdate.getCantidad()+ "");
+            statement.setString(7, matUpdate.getValorTotal() + "");
+            statement.setString(7, matUpdate.getFecha());
+              
             statement.executeUpdate();
             
             statement.close();
@@ -77,7 +82,7 @@ public class Inventario_Dao implements Inventario_Interface{
 
     @Override
     public void deleteById(int id) {
-        String sql = "delete from Inventario where ID = ?";
+        String sql = "delete from Material where ID = ?";
         
         try{            
             PreparedStatement statement;
@@ -96,9 +101,9 @@ public class Inventario_Dao implements Inventario_Interface{
     
     
     @Override
-    public Inventario findById(int id) {
-        String sql = "select * from Inventario where ID = ?";
-        Inventario inv = null;
+    public Material findById(int id) {
+        String sql = "select * from Material where ID = ?";
+        Material mat = null;
          
         try{
             PreparedStatement statement;
@@ -110,12 +115,16 @@ public class Inventario_Dao implements Inventario_Interface{
             resultSet = statement.executeQuery();
             
             if (resultSet.next()){
-                inv = new Inventario(
+                mat = new Material(
+                      
                    resultSet.getInt("ID"),
+                   resultSet.getString("Nombre Proveedor"),
+                   resultSet.getString("Correo Proveedor"),
                    resultSet.getString("Instrumento o Accesorio"),
                    resultSet.getString("Marca y Modelo"),
-                   resultSet.getInt("Cantidad Disponible"),
-                   resultSet.getDouble("Valor Unitario"));
+                   resultSet.getInt("Cantidad"),
+                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getString("Fecha"));
 
             }
             
@@ -126,12 +135,12 @@ public class Inventario_Dao implements Inventario_Interface{
             System.out.println("Error" + ex.getMessage());
         }
         
-        return inv;
+        return mat;
     }
     
-    public ArrayList<Inventario> findAll(){
-        String sql = "select * from Inventario"; 
-        ArrayList<Inventario> lista = new ArrayList<>();
+    public ArrayList<Material> findAll(){
+        String sql = "select * from Material"; 
+        ArrayList<Material> lista = new ArrayList<>();
         
         try {
             Statement statement;
@@ -141,14 +150,17 @@ public class Inventario_Dao implements Inventario_Interface{
             resultSet = statement.executeQuery(sql);
         
             while (resultSet.next()) {
-                Inventario inv = new Inventario(
+                Material mat = new Material(
                    resultSet.getInt("ID"),
+                   resultSet.getString("Nombre Proveedor"),
+                   resultSet.getString("Correo Proveedor"),
                    resultSet.getString("Instrumento o Accesorio"),
                    resultSet.getString("Marca y Modelo"),
-                   resultSet.getInt("Cantidad Disponible"),
-                   resultSet.getDouble("Valor Unitario"));
+                   resultSet.getInt("Cantidad"),
+                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getString("Fecha"));
                 
-                lista.add(inv);
+                lista.add(mat);
             }
             
             resultSet.close();

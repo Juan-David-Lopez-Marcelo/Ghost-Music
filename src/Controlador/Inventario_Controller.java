@@ -4,33 +4,40 @@
  */
 package Controlador;
 
+import Dao.Inventario_Dao;
 import Modelo.Instrumento_Accesorio;
 import Modelo.Inventario;
 import Vista.InventarioListView;
-import Vista.Proveedores_Tabla;
+import Vista.Material_Tabla;
 import Vista.Ventas_Formulario;
 import Vista.Ventas_Tabla;
 import java.awt.event.ActionEvent;
 import static java.lang.System.exit;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
  * @author Usuario
  */
 public class Inventario_Controller {
-    private InventarioListView inventarioView;
-    private Inventario inventarioModel;
-    private Instrumento_Accesorio inst;
-    private Ventas_Tabla ventasTbl;
-    private Proveedores_Tabla proveedoresTbl;
+    InventarioListView inventarioView;
+    Inventario inventarioModel;
+    Instrumento_Accesorio inst;
+    Ventas_Tabla ventasTbl;
+    Material_Tabla proveedoresTbl;
+    Inventario_Dao invDao;
     
-    public Inventario_Controller(InventarioListView inventarioView, Inventario inventarioModel,Instrumento_Accesorio inst,Ventas_Tabla ventasTbl, Proveedores_Tabla proveedoresTbl) {
+    
+    public Inventario_Controller(InventarioListView inventarioView, Inventario inventarioModel,Instrumento_Accesorio inst,Ventas_Tabla ventasTbl, Material_Tabla proveedoresTbl) throws SQLException {
         this.inventarioView = inventarioView;
         this.inventarioModel = inventarioModel;
         this.inst = inst;
         this.ventasTbl = ventasTbl;
         this.proveedoresTbl = proveedoresTbl;
+        this.invDao = new Inventario_Dao();
         
+        mostrarDatos();
         inventarioView.cambiarVentas((ActionEvent e) -> { 
             inventarioView.setVisible(false);
             ventasTbl.setVisible(true);
@@ -44,5 +51,13 @@ public class Inventario_Controller {
         inventarioView.salir((ActionEvent e) -> { 
             exit(0);
         });
+    }
+    void mostrarDatos() throws SQLException{
+        ArrayList<Inventario> invs = invDao.findAll();
+ 
+        inventarioView.mostrarDatos(invs);
+        //ClientsHandler handler = new ClientsHandler();
+        //ArrayList<ClientsModel> models = handler.getAllClients(); 
+        //this.view.mostrarDatos(models);
     }
 }

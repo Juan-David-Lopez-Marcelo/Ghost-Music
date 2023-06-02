@@ -4,14 +4,16 @@
  */
 package DaoInterfaces;
 
-import Modelo.Venta;
+import Modelo.Material;
 import java.util.ArrayList;
 
-public interface Ventas_Interface {
-    public void update(Venta venta);
-    public void create(Venta venta);
+
+public interface Material_Interface {
+    
+    public void update(Material mat);
+    public void create(Material mat);
     public void deleteById(int id);
-    public Venta findById(int id);
-    public ArrayList<Venta> findAll();
+    public Material findById(int id);
+    public ArrayList<Material> findAll();
 
 }

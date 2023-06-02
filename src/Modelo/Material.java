@@ -4,21 +4,15 @@
  */
 package Modelo;
 
-import java.time.LocalDate;
-
-/**
- *
- * @author Usuario
- */
 public class Material extends Instrumento_Accesorio{
     
     private int id;
     private String nombre_prov;
     private String correo_prov;
     private double valorTotal;
-    private LocalDate fecha;
+    private String fecha;
 
-    public Material(String nombre, String marca_modelo, int cantidad,String nombre_prov,String correo_prov, double valorTotal, LocalDate fecha) {
+    public Material(int id,String nombre_prov,String correo_prov,String nombre, String marca_modelo, int cantidad, double valorTotal, String fecha) {
         super(nombre,marca_modelo,cantidad);
         this.id = id;
         this.nombre_prov = nombre_prov;
@@ -59,15 +53,12 @@ public class Material extends Instrumento_Accesorio{
         this.valorTotal = valorTotal;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-
-
-    
     
 }

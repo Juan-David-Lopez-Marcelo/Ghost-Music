@@ -13,7 +13,7 @@ public class Inventario extends Instrumento_Accesorio{
     private int id;
     private double precio;
 
-    public Inventario(String nombre, String marca_modelo, int cantidad, int id, double precio) {
+    public Inventario(int id,String nombre, String marca_modelo, int cantidad,double precio) {
         super(nombre,marca_modelo,cantidad);
         this.id = id;
         this.precio = precio;
@@ -31,7 +31,7 @@ public class Inventario extends Instrumento_Accesorio{
         return precio;
     }
 
-    public void setCantidadDisponible(double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 }

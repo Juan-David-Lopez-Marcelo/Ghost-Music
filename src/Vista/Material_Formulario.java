@@ -10,12 +10,12 @@ import java.awt.event.ActionListener;
  *
  * @author Usuario
  */
-public class Proveedores_Formulario extends javax.swing.JFrame {
+public class Material_Formulario extends javax.swing.JFrame {
 
     /**
      * Creates new form Proveedores_Formulario
      */
-    public Proveedores_Formulario() {
+    public Material_Formulario() {
         initComponents();
     }
 

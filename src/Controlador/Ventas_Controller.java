@@ -4,22 +4,30 @@
  */
 package Controlador;
 
+import Dao.Ventas_Dao;
+import Modelo.Venta;
 import Vista.InventarioListView;
 import Vista.Ventas_Formulario;
 import Vista.Ventas_Tabla;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Ventas_Controller {
-    private Ventas_Tabla ventas;
-    private InventarioListView inventarioView;
-    private Ventas_Formulario formulario;
+    Ventas_Tabla ventas;
+    InventarioListView inventarioView;
+    Ventas_Formulario formulario;
+    Ventas_Dao ventaDao;
     
-    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario){
+    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario) throws SQLException{
         this.ventas = ventas;
         this.inventarioView = inventarioView;
         this.formulario = formulario;
+        this.ventaDao = new Ventas_Dao();
+        
+        
+        mostrarDatos();
+        
         ventas.cambiarInventario((ActionEvent e) -> { 
             ventas.setVisible(false);
             inventarioView.setVisible(true);  
@@ -41,6 +49,14 @@ public class Ventas_Controller {
             //System.out.println(cliente.getNombre());
         });
       
+    }
+    void mostrarDatos() throws SQLException{
+        ArrayList<Venta> venta = ventaDao.findAll();
+ 
+        ventas.mostrarDatos(venta);
+        //ClientsHandler handler = new ClientsHandler();
+        //ArrayList<ClientsModel> models = handler.getAllClients(); 
+        //this.view.mostrarDatos(models);
     }
 
 }

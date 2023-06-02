@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class Welcome_Controller {
     
-    private InventarioListView inventarioView;
-    private Welcome welcome;
+    InventarioListView inventarioView;
+    Welcome welcome;
     Admin admin;
     public Welcome_Controller(Welcome welcome,InventarioListView inventarioView, Admin admin){
         
