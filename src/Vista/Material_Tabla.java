@@ -6,7 +6,12 @@ package Vista;
 
 import Modelo.Material;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -231,4 +236,26 @@ public class Material_Tabla extends javax.swing.JFrame {
         }
      
     }
+    public void guardarRegistros() {
+        try {
+            BufferedWriter outStream = new BufferedWriter(new FileWriter("Material.csv"));
+            
+            tblDatos.getModel();
+            int numFilas = tblDatos.getRowCount();
+            int numColumnas = tblDatos.getColumnCount();
+
+            for (int fila = 0; fila < numFilas; fila++) {
+                for (int columna = 0; columna < numColumnas; columna++) {
+                    Object valor = modelTable.getValueAt(fila, columna);
+                    outStream.write(valor.toString() + ",");
+                }
+                outStream.write("\n");
+            }
+
+            outStream.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+  
 }

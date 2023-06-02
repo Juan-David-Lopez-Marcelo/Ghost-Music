@@ -51,6 +51,7 @@ public class Material_Controller {
             } catch (SQLException ex) {
                 Logger.getLogger(Ventas_Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
+            material.guardarRegistros();
         });
         formulario.cambiarTablaProveedor((ActionEvent e) -> { 
             material.setVisible(true);
@@ -74,6 +75,7 @@ public class Material_Controller {
             formulario.setVisible(false);
             material.setVisible(true);
             formulario.limpiar();
+            material.guardarRegistros();
             }
         });
         
@@ -85,5 +87,6 @@ public class Material_Controller {
         material.mostrarDatos(mats);
 
     }
+    
     
 }

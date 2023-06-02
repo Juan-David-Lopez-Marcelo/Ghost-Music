@@ -48,6 +48,7 @@ public class Ventas_Controller {
             } catch (SQLException ex) {
                 Logger.getLogger(Ventas_Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
+            ventas.guardarRegistros();
         });
         formulario.cambiarTablaVenta((ActionEvent e) -> { 
             ventas.setVisible(true);
@@ -71,6 +72,7 @@ public class Ventas_Controller {
                 formulario.setVisible(false);
                 ventas.setVisible(true); 
                 formulario.limpiar();
+                ventas.guardarRegistros();
             }
 
         });

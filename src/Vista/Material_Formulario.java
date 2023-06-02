@@ -4,7 +4,11 @@
  */
 package Vista;
 
+import Modelo.Material;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -333,5 +337,6 @@ public class Material_Formulario extends javax.swing.JFrame {
         txtfFecha.setText("");
 
     }
+     
     
 }
