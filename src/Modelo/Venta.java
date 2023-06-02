@@ -63,4 +63,5 @@ public class Venta extends Instrumento_Accesorio{
         this.fecha = fecha;
     }
     
+    
 }

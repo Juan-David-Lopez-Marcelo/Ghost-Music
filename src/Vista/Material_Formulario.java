@@ -5,6 +5,7 @@
 package Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -276,6 +277,61 @@ public class Material_Formulario extends javax.swing.JFrame {
 
     public int getTxtfCantidad() {
         return Integer.parseInt(txtfCantidad.getText());
+    }
+    public boolean validar(){
+        boolean s = true;
+        String ms ="Falta:\n";
+        
+        if(txtfId.getText().length()<=0){
+            s=false;
+            ms=ms+" La ID\n";
+        }
+        if(txtfNombre.getText().length()<=0){
+            s=false;
+            ms=ms+" El nombre\n";
+        }
+        
+        if(txtfCorreo.getText().length()<=0){
+            s=false;
+            ms=ms+" El correo\n";
+        }
+        
+        if(txtfInstrumento.getText().length()<=0){
+            s=false;
+            ms=ms+" El instrumento o accesorio\n";
+        }
+        if(txtfMarca.getText().length()<=0){
+            s=false;
+            ms=ms+" La marca y modelo\n";
+        }
+        if(txtfCantidad.getText().length()<=0){
+            s=false;
+            ms=ms+" La cantidad\n";
+        }
+        if(txtfValor.getText().length()<=0){
+            s=false;
+            ms=ms+" El valor total\n";
+        }
+        if(txtfFecha.getText().length()<=0){
+            s=false;
+            ms=ms+" La fecha\n";
+        }
+
+        if(!s){
+        JOptionPane.showMessageDialog(this, ms, "Campos sin registrar", JOptionPane.ERROR_MESSAGE);
+        }
+        return s;
+     }
+     public void limpiar(){        
+        txtfId.setText("");
+        txtfNombre.setText("");
+        txtfCorreo.setText("");
+        txtfInstrumento.setText("");
+        txtfMarca.setText("");
+        txtfCantidad.setText("");
+        txtfValor.setText("");
+        txtfFecha.setText("");
+
     }
     
 }

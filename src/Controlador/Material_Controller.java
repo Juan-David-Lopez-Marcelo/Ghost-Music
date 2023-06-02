@@ -57,6 +57,7 @@ public class Material_Controller {
             formulario.setVisible(false);
         });
         formulario.añadirMat((ActionEvent e) -> { 
+            if(formulario.validar()){
             matModel.setId(formulario.getTxtfId());
             matModel.setNombre_prov(formulario.getTxtfNombre());
             matModel.setCorreo_prov(formulario.getTxtfCorreo());
@@ -72,7 +73,10 @@ public class Material_Controller {
             
             formulario.setVisible(false);
             material.setVisible(true);
+            formulario.limpiar();
+            }
         });
+        
         
     }
     void mostrarDatos() throws SQLException{
@@ -81,4 +85,5 @@ public class Material_Controller {
         material.mostrarDatos(mats);
 
     }
+    
 }

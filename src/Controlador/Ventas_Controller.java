@@ -54,24 +54,24 @@ public class Ventas_Controller {
             formulario.setVisible(false);
         });
         formulario.crearVenta((ActionEvent e) -> { 
-            
-            ventaModel.setId(formulario.getTxtfId());
-            ventaModel.setNombre_cli(formulario.getTxtfNombre());
-            ventaModel.setCorreo_cli(formulario.getTxtfCorreo());
-            ventaModel.setNombre(formulario.getTxtfInstrumento());
-            ventaModel.setMarca_modelo(formulario.getTxtfMarca());
-            ventaModel.setCantidad(formulario.getTxtfCantidad());
-            ventaModel.setValorTotal(formulario.getTxtfTotal());
-            ventaModel.setFecha(formulario.getTxtfFecha());
-            
-            ventaDao.create(ventaModel);
-            ventaDao.update(ventaModel);
-            ventas.llenarTabla(ventaModel);
-            
-            formulario.setVisible(false);
-            ventas.setVisible(true);
-            
-            
+            if(formulario.validar()){
+                ventaModel.setId(formulario.getTxtfId());
+                ventaModel.setNombre_cli(formulario.getTxtfNombre());
+                ventaModel.setCorreo_cli(formulario.getTxtfCorreo());
+                ventaModel.setNombre(formulario.getTxtfInstrumento());
+                ventaModel.setMarca_modelo(formulario.getTxtfMarca());
+                ventaModel.setCantidad(formulario.getTxtfCantidad());
+                ventaModel.setValorTotal(formulario.getTxtfTotal());
+                ventaModel.setFecha(formulario.getTxtfFecha());
+
+                ventaDao.create(ventaModel);
+                ventaDao.update(ventaModel);
+                ventas.llenarTabla(ventaModel);
+
+                formulario.setVisible(false);
+                ventas.setVisible(true); 
+                formulario.limpiar();
+            }
 
         });
       
