@@ -33,40 +33,15 @@ public class Welcome_Controller {
         admin.setNombre(welcome.getUser());
         admin.setClave(welcome.getContraseña());
         
-        /*String a = (String)admin.getClave();
-        if(validar()){
-            if(admin.getClave()=="abc"){
-                
-            }
-            
-        }*/
-        
-        welcome.setVisible(false);
-        inventarioView.setVisible(true);
-            
-        });
-       
-    }
-    
-        public boolean validar(){
-        boolean s = true;
-        String ms ="Falta:\n";
-        
-        if(admin.getNombre().length()<=0){
-            s=false;
-            ms=ms+" El nombre\n";
-        }
-        
-        /*if(admin.getClave().length()<=0){
-            s=false;
-            ms=ms+" La clave\n";
-        }*/
-      
-        if(!s){
-            System.out.println("Falta: "+ms);
-       
-        }
-        return s;
-     }
+        if(welcome.validar()){
+            if(admin.getClave().equals("abc")){
+                welcome.setVisible(false);
+                inventarioView.setVisible(true);
+            }else{
+                System.out.println("Contraseña incorrecta");
+            }   
+        }    
+        });      
+    }      
     }
 

@@ -11,9 +11,9 @@ package Modelo;
 public class Admin {
     
     private String nombre;
-    private char[] clave;
+    private String clave;
     
-    public Admin(String nombre, char[] clave) {
+    public Admin(String nombre, String clave) {
         this.nombre = nombre;
         this.clave = clave;
     }
@@ -26,11 +26,11 @@ public class Admin {
         this.nombre = nombre;
     }
     
-    public char[] getClave() {
+    public String getClave() {
         return clave;
     }
 
-    public void setClave(char[] clave) {
+    public void setClave(String clave) {
         this.clave = clave;
     }
 

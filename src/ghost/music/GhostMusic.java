@@ -27,7 +27,7 @@ public class GhostMusic {
     public static void main(String[] args) throws SQLException {
         //Atributos admin
         String nombAdm = null ;
-        char[] clave = null ;
+        String clave = null ;
         Admin admin = new Admin(nombAdm,clave);
         //Atributos venta
         int id = 0,cantidad = 0;

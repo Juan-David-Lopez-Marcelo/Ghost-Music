@@ -5,6 +5,7 @@
 package Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 /**
@@ -34,10 +35,10 @@ public class Welcome extends javax.swing.JFrame {
         lblTitulo2 = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        passfPassword = new javax.swing.JPasswordField();
         btnIngreso = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
         txtfUser = new javax.swing.JTextField();
+        passfContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESO");
@@ -56,12 +57,6 @@ public class Welcome extends javax.swing.JFrame {
         lblPassword.setBackground(new java.awt.Color(255, 255, 255));
         lblPassword.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         lblPassword.setText("Password:");
-
-        passfPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passfPasswordActionPerformed(evt);
-            }
-        });
 
         btnIngreso.setFont(new java.awt.Font("Segoe Script", 0, 12)); // NOI18N
         btnIngreso.setText("INGRESAR");
@@ -101,8 +96,8 @@ public class Welcome extends javax.swing.JFrame {
                                     .addComponent(lblUser))
                                 .addGap(28, 28, 28)
                                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(passfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                                    .addComponent(txtfUser)))
+                                    .addComponent(txtfUser, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                    .addComponent(passfContraseña)))
                             .addGroup(pnlFondoLayout.createSequentialGroup()
                                 .addGap(230, 230, 230)
                                 .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -129,10 +124,10 @@ public class Welcome extends javax.swing.JFrame {
                         .addGap(29, 29, 29)))
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword)
-                    .addComponent(passfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(btnIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,10 +149,6 @@ public class Welcome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresoActionPerformed
 
-    private void passfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passfPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passfPasswordActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngreso;
     private javax.swing.JLabel lblLogo;
@@ -165,7 +156,7 @@ public class Welcome extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo2;
     private javax.swing.JLabel lblUser;
-    private javax.swing.JPasswordField passfPassword;
+    private javax.swing.JPasswordField passfContraseña;
     private javax.swing.JPanel pnlFondo;
     private javax.swing.JTextField txtfUser;
     // End of variables declaration//GEN-END:variables
@@ -176,8 +167,25 @@ public class Welcome extends javax.swing.JFrame {
     public String getUser(){
         return txtfUser.getText();
     }
-    public char[] getContraseña() {
-        return passfPassword.getPassword();
+    public String getContraseña() {
+        return passfContraseña.getText();
     }
-    //La vista valida
+    public boolean validar(){
+        boolean s = true;
+        String ms ="Falta:\n";
+        
+        if(txtfUser.getText().length()<=0){
+            s=false;
+            ms=ms+" El nombre\n";
+        }
+        
+      if(passfContraseña.getText().length()<=0){
+            s=false;
+            ms=ms+" La clave\n";
+        }
+        if(!s){
+            JOptionPane.showMessageDialog(this, ms, "Campos sin registrar", JOptionPane.ERROR_MESSAGE);
+        }
+        return s;
+     }
 }
