@@ -4,20 +4,26 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Usuario
  */
-public class Venta {
+public class Venta extends Instrumento_Accesorio{
     
     private int id;
-    private int cantidad;
+    private String nombre_cli;
+    private String correo_cli;
     private double valorTotal;
-    private int fecha;
+    private LocalDate fecha;
 
-    public Venta(int id, int cantidad, double valorTotal, int fecha) {
+    public Venta(String nombre, String marca_modelo, int cantidad,String nombre_cli,String correo_cli,int id,double valorTotal, LocalDate fecha) {
+        
+        super(nombre,marca_modelo,cantidad);
         this.id = id;
-        this.cantidad = cantidad;
+        this.nombre_cli = nombre_cli;
+        this.correo_cli = correo_cli;
         this.valorTotal = valorTotal;
         this.fecha = fecha;
     }
@@ -30,12 +36,20 @@ public class Venta {
         this.id = id;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public String getNombre_cli() {
+        return nombre_cli;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setNombre_cli(String nombre_cli) {
+        this.nombre_cli = nombre_cli;
+    }
+
+    public String getCorreo_cli() {
+        return correo_cli;
+    }
+
+    public void setCorreo_cli(String correo_cli) {
+        this.correo_cli = correo_cli;
     }
 
     public double getValorTotal() {
@@ -46,13 +60,12 @@ public class Venta {
         this.valorTotal = valorTotal;
     }
 
-    public int getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(int fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
-    
     
 }

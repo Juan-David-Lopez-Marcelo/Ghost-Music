@@ -8,14 +8,15 @@ package Modelo;
  *
  * @author Usuario
  */
-public class Inventario {
+public class Inventario extends Instrumento_Accesorio{
     
     private int id;
-    private int cantidadDisponible;
+    private double precio;
 
-    public Inventario(int id, int cantidadDisponible) {
+    public Inventario(String nombre, String marca_modelo, int cantidad, int id, double precio) {
+        super(nombre,marca_modelo,cantidad);
         this.id = id;
-        this.cantidadDisponible = cantidadDisponible;
+        this.precio = precio;
     }
 
     public int getId() {
@@ -26,13 +27,11 @@ public class Inventario {
         this.id = id;
     }
 
-    public int getCantidadDisponible() {
-        return cantidadDisponible;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setCantidadDisponible(int cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
+    public void setCantidadDisponible(double precio) {
+        this.precio = precio;
     }
-    
-    
 }

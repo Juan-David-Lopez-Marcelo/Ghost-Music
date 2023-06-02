@@ -36,11 +36,11 @@ public class GhostMusic {
         Ventas_Formulario ventasFml = new Ventas_Formulario();
         Proveedores_Tabla proveedoresTbl = new Proveedores_Tabla();
         Proveedores_Formulario proveedoresFml = new Proveedores_Formulario();
-        Cliente cliente = new Cliente(nombre,correo);
+
         
         Welcome_Controller wel_Controller = new Welcome_Controller(welcome,inventarioView,admin);
         Inventario_Controller inv_Controller = new Inventario_Controller(inventarioView,inventarioModel,inst,ventasTbl, proveedoresTbl);
-        Ventas_Controller vent_Controller = new Ventas_Controller(ventasTbl,inventarioView, ventasFml, cliente);
+        Ventas_Controller vent_Controller = new Ventas_Controller(ventasTbl,inventarioView, ventasFml);
         Proveedores_Controller prov_Controller = new Proveedores_Controller(proveedoresTbl,inventarioView,proveedoresFml);
         
         

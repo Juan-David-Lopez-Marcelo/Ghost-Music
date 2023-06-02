@@ -4,7 +4,6 @@
  */
 package Controlador;
 
-import Modelo.Cliente;
 import Vista.InventarioListView;
 import Vista.Ventas_Formulario;
 import Vista.Ventas_Tabla;
@@ -12,17 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-/**
- *
- * @author Usuario
- */
 public class Ventas_Controller {
     private Ventas_Tabla ventas;
     private InventarioListView inventarioView;
     private Ventas_Formulario formulario;
-    private Cliente cliente;
     
-    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario, Cliente cliente){
+    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario){
         this.ventas = ventas;
         this.inventarioView = inventarioView;
         this.formulario = formulario;
@@ -43,8 +37,8 @@ public class Ventas_Controller {
         });
         formulario.crearVenta((ActionEvent e) -> { 
             //Proceso para crear venta
-            cliente.setNombre(formulario.getTxtfNombre());
-            System.out.println(cliente.getNombre());
+            //cliente.setNombre(formulario.getTxtfNombre());
+            //System.out.println(cliente.getNombre());
         });
       
     }
