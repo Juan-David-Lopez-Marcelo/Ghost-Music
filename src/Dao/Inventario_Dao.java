@@ -26,7 +26,7 @@ public class Inventario_Dao implements Inventario_Interface{
     
     @Override
     public void update(Inventario inv) {
-        String sql = "update Inventario set ID = ?, Instrumento o Accesorio = ?, Marca y Modelo = ?, Cantidad Disponible = ?, Valor Unitario = ? where ID = ?";
+        String sql = "update Inventario set ID = ?,Instrumento_o_Accesorio= ?,Marca_y_Modelo= ?,Cantidad_Disponible= ?,Valor_Unitario= ? where ID= ?";
        
         try{
             Inventario invUpdate = (Inventario) inv;
@@ -43,7 +43,7 @@ public class Inventario_Dao implements Inventario_Interface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -51,7 +51,7 @@ public class Inventario_Dao implements Inventario_Interface{
 
     @Override
     public void create(Inventario inv) {
-       String sql = "insert into Inventario (ID,Instrumento o Accesorio,Marca y Modelo,Cantidad Disponible,Valor Unitario) values (?, ?, ?, ?, ?)";
+       String sql = "insert into Inventario (ID,Instrumento_o-Accesorio,Marca_y_Modelo,Cantidad_Disponible,Valor_Unitario) values (?, ?, ?, ?, ?)";
        
         try{
             Inventario invUpdate = (Inventario) inv;
@@ -69,7 +69,7 @@ public class Inventario_Dao implements Inventario_Interface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -87,7 +87,7 @@ public class Inventario_Dao implements Inventario_Interface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -112,16 +112,16 @@ public class Inventario_Dao implements Inventario_Interface{
             if (resultSet.next()){
                 inv = new Inventario(
                    resultSet.getInt("ID"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
-                   resultSet.getInt("Cantidad Disponible"),
-                   resultSet.getDouble("Valor Unitario"));
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
+                   resultSet.getInt("Cantidad_Disponible"),
+                   resultSet.getDouble("Valor_Unitario"));
 
             }
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -143,21 +143,28 @@ public class Inventario_Dao implements Inventario_Interface{
             while (resultSet.next()) {
                 Inventario inv = new Inventario(
                    resultSet.getInt("ID"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
-                   resultSet.getInt("Cantidad Disponible"),
-                   resultSet.getDouble("Valor Unitario"));
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
+                   resultSet.getInt("Cantidad_Disponible"),
+                   resultSet.getDouble("Valor_Unitario"));
                 
                 lista.add(inv);
             }
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
         
         return lista;
+    }
+    public void closeConnection() {
+        try {
+            connector.getConnection().close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
     }
 }

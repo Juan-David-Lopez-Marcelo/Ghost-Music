@@ -290,7 +290,6 @@ public class Ventas_Formulario extends javax.swing.JFrame {
     }
 
     public int getTxtfId() {
-        //Double.parseDouble(txtfCantidad.getText());
         return Integer.parseInt(txtfId.getText());
     }
 

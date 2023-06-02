@@ -12,6 +12,8 @@ import Vista.Material_Tabla;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,12 +23,14 @@ public class Material_Controller {
     Material_Tabla material;
     InventarioListView inventarioView;
     Material_Formulario formulario;
+    Material matModel;
     Material_Dao matDao;
     
-    public Material_Controller(Material_Tabla material,InventarioListView inventarioView,Material_Formulario formulario) throws SQLException{
+    public Material_Controller(Material_Tabla material,InventarioListView inventarioView,Material_Formulario formulario,Material matModel) throws SQLException{
         this.material = material;
         this.inventarioView = inventarioView;
         this.formulario = formulario;
+        this.matModel = matModel;
         this.matDao = new Material_Dao();
         
         mostrarDatos();
@@ -40,14 +44,34 @@ public class Material_Controller {
             formulario.setVisible(true);
         });
         material.eliminarMaterial((ActionEvent e) -> { 
-            //Proceso para eliminar material
+            matDao.deleteById(material.leerRegistro());
+            material.limpiarTabla();
+            try {
+                mostrarDatos();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas_Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
         formulario.cambiarTablaProveedor((ActionEvent e) -> { 
             material.setVisible(true);
             formulario.setVisible(false);
         });
         formulario.añadirMat((ActionEvent e) -> { 
-            //Proceso para añadir material
+            matModel.setId(formulario.getTxtfId());
+            matModel.setNombre_prov(formulario.getTxtfNombre());
+            matModel.setCorreo_prov(formulario.getTxtfCorreo());
+            matModel.setNombre(formulario.getTxtfInstrumento());
+            matModel.setMarca_modelo(formulario.getTxtfMarca());
+            matModel.setCantidad(formulario.getTxtfCantidad());
+            matModel.setValorTotal(formulario.getTxtfValor());
+            matModel.setFecha(formulario.getTxtfFecha());
+            
+            matDao.create(matModel);
+            matDao.update(matModel);
+            material.llenarTabla(matModel);
+            
+            formulario.setVisible(false);
+            material.setVisible(true);
         });
         
     }
@@ -55,8 +79,6 @@ public class Material_Controller {
         ArrayList<Material> mats = matDao.findAll();
  
         material.mostrarDatos(mats);
-        //ClientsHandler handler = new ClientsHandler();
-        //ArrayList<ClientsModel> models = handler.getAllClients(); 
-        //this.view.mostrarDatos(models);
+
     }
 }

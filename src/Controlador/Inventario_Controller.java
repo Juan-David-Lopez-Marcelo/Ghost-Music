@@ -56,8 +56,5 @@ public class Inventario_Controller {
         ArrayList<Inventario> invs = invDao.findAll();
  
         inventarioView.mostrarDatos(invs);
-        //ClientsHandler handler = new ClientsHandler();
-        //ArrayList<ClientsModel> models = handler.getAllClients(); 
-        //this.view.mostrarDatos(models);
     }
 }

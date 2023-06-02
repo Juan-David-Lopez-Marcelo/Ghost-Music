@@ -201,4 +201,34 @@ public class Material_Tabla extends javax.swing.JFrame {
     public void eliminarMaterial(ActionListener listener) {
         btnEliminar.addActionListener(listener);
     }
+    public void llenarTabla(Material mat){
+        Object[] a = new Object[8];
+        a[0]=mat.getId();
+        a[1]=mat.getNombre_prov();
+        a[2]=mat.getCorreo_prov();
+        a[3]=mat.getNombre();
+        a[4]=mat.getMarca_modelo();
+        a[5]=mat.getCantidad();
+        a[6]=mat.getValorTotal();
+        a[7]=mat.getFecha();
+        modelTable.addRow(a);
+    }
+    public int leerRegistro(){
+        
+        int fila = tblDatos.getSelectedRow(); 
+        int columna = tblDatos.getSelectedColumn();
+        
+        Object seleccionado = tblDatos.getValueAt(fila, columna).toString();
+        int conv = Integer.parseInt(seleccionado.toString());
+        
+        return conv;
+    }
+    public void limpiarTabla(){
+        
+        for (int i = 0; i < tblDatos.getRowCount(); i++) {
+        modelTable.removeRow(i);
+        i-=1;
+        }
+     
+    }
 }

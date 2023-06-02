@@ -26,7 +26,7 @@ public class Material_Dao implements Material_Interface {
     
     @Override
     public void update(Material mat) {
-        String sql = "update Material set ID = ?, Nombre Proveedor = ?, Correo Proveedor = ?, Instrumento o Accesorio = ?, Marca y Modelo = ?, Cantidad = ?, Valor Total = ?, Fecha = ? where ID = ?";
+        String sql = "update Material set ID = ?,Nombre_Proveedor= ?,Correo_Proveedor= ?,Instrumento_o_Accesorio= ?,Marca_y_Modelo= ?,Cantidad= ?,Valor_Total= ?,Fecha= ? where ID= ?";
        
         try{
             Material matUpdate = (Material) mat;
@@ -36,17 +36,17 @@ public class Material_Dao implements Material_Interface {
             
             statement.setString(1, matUpdate.getId() + "");
             statement.setString(2, matUpdate.getNombre_prov());
-            statement.setString(2, matUpdate.getCorreo_prov());
-            statement.setString(2, matUpdate.getNombre());
-            statement.setString(3, matUpdate.getMarca_modelo());
-            statement.setString(5, matUpdate.getCantidad() + "");
-            statement.setString(4, matUpdate.getValorTotal() + "");
-            statement.setString(3, matUpdate.getFecha());
+            statement.setString(3, matUpdate.getCorreo_prov());
+            statement.setString(4, matUpdate.getNombre());
+            statement.setString(5, matUpdate.getMarca_modelo());
+            statement.setString(6, matUpdate.getCantidad() + "");
+            statement.setString(7, matUpdate.getValorTotal() + "");
+            statement.setString(8, matUpdate.getFecha());
                     
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -54,7 +54,7 @@ public class Material_Dao implements Material_Interface {
 
     @Override
     public void create(Material mat) {
-       String sql = "insert into Material (ID,Nombre Proveedor,Correo Proveedor,Instrumento o Accesorio,Marca y Modelo,Cantidad,Valor Total,Fecha) values (?, ?, ?, ?, ?, ?, ?, ?)";
+       String sql = "insert into Material (ID,Nombre_Proveedor,Correo_Proveedor,Instrumento_o_Accesorio,Marca_y_Modelo,Cantidad,Valor_Total,Fecha) values (?, ?, ?, ?, ?, ?, ?, ?)";
        
         try{
             Material matUpdate = (Material) mat;
@@ -69,12 +69,12 @@ public class Material_Dao implements Material_Interface {
             statement.setString(5, matUpdate.getMarca_modelo());
             statement.setString(6, matUpdate.getCantidad()+ "");
             statement.setString(7, matUpdate.getValorTotal() + "");
-            statement.setString(7, matUpdate.getFecha());
+            statement.setString(8, matUpdate.getFecha());
               
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -92,7 +92,7 @@ public class Material_Dao implements Material_Interface {
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -118,19 +118,19 @@ public class Material_Dao implements Material_Interface {
                 mat = new Material(
                       
                    resultSet.getInt("ID"),
-                   resultSet.getString("Nombre Proveedor"),
-                   resultSet.getString("Correo Proveedor"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
+                   resultSet.getString("Nombre_Proveedor"),
+                   resultSet.getString("Correo_Proveedor"),
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
                    resultSet.getInt("Cantidad"),
-                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getDouble("Valor_Total"), 
                    resultSet.getString("Fecha"));
 
             }
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -152,12 +152,12 @@ public class Material_Dao implements Material_Interface {
             while (resultSet.next()) {
                 Material mat = new Material(
                    resultSet.getInt("ID"),
-                   resultSet.getString("Nombre Proveedor"),
-                   resultSet.getString("Correo Proveedor"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
+                   resultSet.getString("Nombre_Proveedor"),
+                   resultSet.getString("Correo_Proveedor"),
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
                    resultSet.getInt("Cantidad"),
-                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getDouble("Valor_Total"), 
                    resultSet.getString("Fecha"));
                 
                 lista.add(mat);
@@ -165,11 +165,18 @@ public class Material_Dao implements Material_Interface {
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
         
         return lista;
+    }
+    public void closeConnection() {
+        try {
+            connector.getConnection().close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
     }
 }

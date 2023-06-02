@@ -5,6 +5,7 @@
 package Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -244,4 +245,37 @@ public class Material_Formulario extends javax.swing.JFrame {
     public void cambiarTablaProveedor(ActionListener listener) {
         btnRegresar.addActionListener(listener);
     }
+
+    public String getTxtfCorreo() {
+        return txtfCorreo.getText();
+    }
+
+    public String getTxtfFecha() {
+        return txtfFecha.getText();
+    }
+
+    public int getTxtfId() {
+        return Integer.parseInt(txtfId.getText());
+    }
+
+    public String getTxtfInstrumento() {
+        return txtfInstrumento.getText();
+    }
+
+    public String getTxtfMarca() {
+        return txtfMarca.getText();
+    }
+
+    public String getTxtfNombre() {
+        return txtfNombre.getText();
+    }
+
+    public double getTxtfValor() {
+        return Double.parseDouble(txtfValor.getText());
+    }
+
+    public int getTxtfCantidad() {
+        return Integer.parseInt(txtfCantidad.getText());
+    }
+    
 }
