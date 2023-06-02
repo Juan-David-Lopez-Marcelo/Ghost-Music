@@ -171,6 +171,7 @@ public class Ventas_Tabla extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -196,5 +197,36 @@ public class Ventas_Tabla extends javax.swing.JFrame {
     }
     public void eliminarVenta(ActionListener listener) {
         btnEliminar.addActionListener(listener);
+    }
+    
+    public void llenarTabla(Venta venta){
+        Object[] a = new Object[8];
+        a[0]=venta.getId();
+        a[1]=venta.getNombre_cli();
+        a[2]=venta.getCorreo_cli();
+        a[3]=venta.getNombre();
+        a[4]=venta.getMarca_modelo();
+        a[5]=venta.getCantidad();
+        a[6]=venta.getValorTotal();
+        a[7]=venta.getFecha();
+        modelTable.addRow(a);
+    }
+    public int leerRegistro(){
+        
+        int fila = tblDatos.getSelectedRow(); 
+        int columna = tblDatos.getSelectedColumn();
+        
+        Object seleccionado = tblDatos.getValueAt(fila, columna).toString();
+        int conv = Integer.parseInt(seleccionado.toString());
+        
+        return conv;
+    }
+    public void limpiarTabla(){
+        
+        for (int i = 0; i < tblDatos.getRowCount(); i++) {
+        modelTable.removeRow(i);
+        i-=1;
+        }
+     
     }
 }

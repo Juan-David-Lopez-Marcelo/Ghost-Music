@@ -12,6 +12,7 @@ import DataBase.Connector;
 import Modelo.Admin;
 import Modelo.Instrumento_Accesorio;
 import Modelo.Inventario;
+import Modelo.Venta;
 import Vista.InventarioListView;
 import Vista.Material_Formulario;
 import Vista.Material_Tabla;
@@ -23,11 +24,15 @@ import java.sql.SQLException;
 
 public class GhostMusic {
     public static void main(String[] args) throws SQLException {
-        String nombre = null;
-        String correo = null;
-        String nombAd = null;
-        char[] clave = null;
-        Admin admin = new Admin(nombAd,clave);
+        //Atributos admin
+        String nombAdm = null ;
+        char[] clave = null ;
+        //Atributos venta
+        int id = 0,cantidad = 0;
+        String nombre_cli = null,correo_cli = null,nombre = null,marca_modelo = null,fecha = null;
+        double valorTotal = 0;
+        Venta venta = new Venta(id,nombre_cli,correo_cli, nombre,marca_modelo,cantidad,valorTotal,fecha);
+        Admin admin = new Admin(nombAdm,clave);
         Welcome welcome = new Welcome();
         InventarioListView inventarioView = new InventarioListView();
         Inventario inventarioModel = null;
@@ -40,7 +45,7 @@ public class GhostMusic {
         
         Welcome_Controller wel_Controller = new Welcome_Controller(welcome,inventarioView,admin);
         Inventario_Controller inv_Controller = new Inventario_Controller(inventarioView,inventarioModel,inst,ventasTbl, proveedoresTbl);
-        Ventas_Controller vent_Controller = new Ventas_Controller(ventasTbl,inventarioView, ventasFml);
+        Ventas_Controller vent_Controller = new Ventas_Controller(ventasTbl,inventarioView, ventasFml,venta);
         Material_Controller prov_Controller = new Material_Controller(proveedoresTbl,inventarioView,proveedoresFml);
         
         

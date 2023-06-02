@@ -6,6 +6,7 @@ package DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -21,13 +22,17 @@ public class Connector {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(
                 "jdbc:sqlite:C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Ghost-Music\\src\\" + nameDatabase+".db");
+            
         }
         catch (Exception exception) {
             System.out.println(exception);
         }
+        
     }
 
     public Connection getConnection() {
         return connection;
     }
+    
+    
 }

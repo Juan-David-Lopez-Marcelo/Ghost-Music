@@ -12,20 +12,24 @@ import Vista.Ventas_Tabla;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Ventas_Controller {
     Ventas_Tabla ventas;
     InventarioListView inventarioView;
     Ventas_Formulario formulario;
     Ventas_Dao ventaDao;
+    Venta ventaModel;
     
-    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario) throws SQLException{
+    public Ventas_Controller(Ventas_Tabla ventas,InventarioListView inventarioView,Ventas_Formulario formulario, Venta ventaModel) throws SQLException{
         this.ventas = ventas;
         this.inventarioView = inventarioView;
         this.formulario = formulario;
+        this.ventaModel = ventaModel;
         this.ventaDao = new Ventas_Dao();
         
-        
+       
         mostrarDatos();
         
         ventas.cambiarInventario((ActionEvent e) -> { 
@@ -37,16 +41,38 @@ public class Ventas_Controller {
             formulario.setVisible(true);
         });
         ventas.eliminarVenta((ActionEvent e) -> { 
-            //Proceso para eliminar venta
+            ventaDao.deleteById(ventas.leerRegistro());
+            ventas.limpiarTabla();
+            try {
+                mostrarDatos();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas_Controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
         formulario.cambiarTablaVenta((ActionEvent e) -> { 
             ventas.setVisible(true);
             formulario.setVisible(false);
         });
         formulario.crearVenta((ActionEvent e) -> { 
-            //Proceso para crear venta
-            //cliente.setNombre(formulario.getTxtfNombre());
-            //System.out.println(cliente.getNombre());
+            
+            ventaModel.setId(formulario.getTxtfId());
+            ventaModel.setNombre_cli(formulario.getTxtfNombre());
+            ventaModel.setCorreo_cli(formulario.getTxtfCorreo());
+            ventaModel.setNombre(formulario.getTxtfInstrumento());
+            ventaModel.setMarca_modelo(formulario.getTxtfMarca());
+            ventaModel.setCantidad(formulario.getTxtfCantidad());
+            ventaModel.setValorTotal(formulario.getTxtfTotal());
+            ventaModel.setFecha(formulario.getTxtfFecha());
+            
+            ventaDao.create(ventaModel);
+            ventaDao.update(ventaModel);
+            ventas.llenarTabla(ventaModel);
+            
+            formulario.setVisible(false);
+            ventas.setVisible(true);
+            
+            
+
         });
       
     }
@@ -54,9 +80,7 @@ public class Ventas_Controller {
         ArrayList<Venta> venta = ventaDao.findAll();
  
         ventas.mostrarDatos(venta);
-        //ClientsHandler handler = new ClientsHandler();
-        //ArrayList<ClientsModel> models = handler.getAllClients(); 
-        //this.view.mostrarDatos(models);
+       
     }
 
 }

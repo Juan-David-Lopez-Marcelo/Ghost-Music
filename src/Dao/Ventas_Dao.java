@@ -13,10 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-/**
- *
- * @author Usuario
- */
+
 public class Ventas_Dao implements Ventas_Interface{
     Connector connector;
     
@@ -26,7 +23,7 @@ public class Ventas_Dao implements Ventas_Interface{
     
     @Override
     public void update(Venta venta) {
-        String sql = "update Ventas set ID = ?, Nombre Cliente = ?, Correo Cliente = ?, Instrumento o Accesorio = ?, Marca y Modelo = ?, Cantidad = ?, Valor Total = ?, Fecha = ? where ID = ?";
+        String sql = "update Ventas set ID = ?,Nombre_Cliente= ?,Correo_Cliente= ?,Instrumento_o_Accesorio= ?,Marca_y_Modelo= ?,Cantidad= ?,Valor_Total= ?,Fecha= ? where ID= ?";
        
         try{
             Venta ventaUpdate = (Venta) venta;
@@ -36,17 +33,16 @@ public class Ventas_Dao implements Ventas_Interface{
             
             statement.setString(1, ventaUpdate.getId() + "");
             statement.setString(2, ventaUpdate.getNombre_cli());
-            statement.setString(2, ventaUpdate.getCorreo_cli());
-            statement.setString(2, ventaUpdate.getNombre());
-            statement.setString(3, ventaUpdate.getMarca_modelo());
-            statement.setString(5, ventaUpdate.getCantidad() + "");
-            statement.setString(4, ventaUpdate.getValorTotal() + "");
-            statement.setString(3, ventaUpdate.getFecha());
+            statement.setString(3, ventaUpdate.getCorreo_cli());
+            statement.setString(4, ventaUpdate.getNombre());
+            statement.setString(5, ventaUpdate.getMarca_modelo());
+            statement.setString(6, ventaUpdate.getCantidad() + "");
+            statement.setString(7, ventaUpdate.getValorTotal() + "");
+            statement.setString(8, ventaUpdate.getFecha());
                     
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -54,7 +50,7 @@ public class Ventas_Dao implements Ventas_Interface{
 
     @Override
     public void create(Venta venta) {
-       String sql = "insert into Ventas (ID,Nombre Cliente,Correo Cliente,Instrumento o Accesorio,Marca y Modelo,Cantidad,Valor Total,Fecha) values (?, ?, ?, ?, ?, ?, ?, ?)";
+       String sql = "insert into Ventas (ID,Nombre_Cliente,Correo_Cliente,Instrumento_o_Accesorio,Marca_y_Modelo,Cantidad,Valor_Total,Fecha) values (?, ?, ?, ?, ?, ?, ?, ?)";
        
         try{
             Venta ventaUpdate = (Venta) venta;
@@ -69,12 +65,11 @@ public class Ventas_Dao implements Ventas_Interface{
             statement.setString(5, ventaUpdate.getMarca_modelo());
             statement.setString(6, ventaUpdate.getCantidad()+ "");
             statement.setString(7, ventaUpdate.getValorTotal() + "");
-            statement.setString(7, ventaUpdate.getFecha());
+            statement.setString(8, ventaUpdate.getFecha());
               
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -92,7 +87,6 @@ public class Ventas_Dao implements Ventas_Interface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -118,19 +112,18 @@ public class Ventas_Dao implements Ventas_Interface{
                 venta = new Venta(
                       
                    resultSet.getInt("ID"),
-                   resultSet.getString("Nombre Cliente"),
-                   resultSet.getString("Correo Cliente"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
+                   resultSet.getString("Nombre_Cliente"),
+                   resultSet.getString("Correo_Cliente"),
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
                    resultSet.getInt("Cantidad"),
-                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getDouble("Valor_Total"), 
                    resultSet.getString("Fecha"));
 
             }
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -152,12 +145,12 @@ public class Ventas_Dao implements Ventas_Interface{
             while (resultSet.next()) {
                 Venta venta = new Venta(
                    resultSet.getInt("ID"),
-                   resultSet.getString("Nombre Cliente"),
-                   resultSet.getString("Correo Cliente"),
-                   resultSet.getString("Instrumento o Accesorio"),
-                   resultSet.getString("Marca y Modelo"),
+                   resultSet.getString("Nombre_Cliente"),
+                   resultSet.getString("Correo_Cliente"),
+                   resultSet.getString("Instrumento_o_Accesorio"),
+                   resultSet.getString("Marca_y_Modelo"),
                    resultSet.getInt("Cantidad"),
-                   resultSet.getDouble("Valor Total"), 
+                   resultSet.getDouble("Valor_Total"), 
                    resultSet.getString("Fecha"));
                 
                 lista.add(venta);
@@ -165,11 +158,17 @@ public class Ventas_Dao implements Ventas_Interface{
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
         
         return lista;
+    }
+    public void closeConnection() {
+        try {
+            connector.getConnection().close();
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar la conexión: " + ex.getMessage());
+        }
     }
 }
