@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 
 public class Ventas_Dao implements Ventas_Interface{
-    Connector connector;
+    private Connector connector;
     
     public Ventas_Dao(){
-        this.connector = new Connector();
+        connector = Connector.getInstance();
     }
     
     @Override

@@ -18,10 +18,10 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class Inventario_Dao implements Inventario_Interface{
-    Connector connector;
+    private Connector connector;
     
     public Inventario_Dao(){
-        this.connector = new Connector();
+        connector = Connector.getInstance();
     }
     
     @Override

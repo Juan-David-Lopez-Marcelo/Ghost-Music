@@ -18,10 +18,10 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class Material_Dao implements Material_Interface {
-    Connector connector;
+    private Connector connector;
     
     public Material_Dao(){
-        this.connector = new Connector();
+        connector = Connector.getInstance();
     }
     
     @Override

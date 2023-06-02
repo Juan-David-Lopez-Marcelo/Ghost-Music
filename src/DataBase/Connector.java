@@ -13,11 +13,12 @@ import java.sql.SQLException;
  * @author Usuario
  */
 public class Connector {
+    private static Connector instance;
     private String nameDatabase = "ghost-music";
     private Connection connection = null;
     
     
-    public Connector() {
+    private Connector() {
         try {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection(
@@ -29,7 +30,18 @@ public class Connector {
         }
         
     }
-
+    
+    public static Connector getInstance() {
+        if (instance == null) {
+            synchronized (Connector.class) {
+                if (instance == null) {
+                    instance = new Connector();
+                }
+            }
+        }
+        return instance;
+    }
+    
     public Connection getConnection() {
         return connection;
     }
